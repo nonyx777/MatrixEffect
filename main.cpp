@@ -24,7 +24,7 @@ int main()
 	sf::Event evnt;
 	sf::Text Letter;
 	sf::Font font;
-	font.loadFromFile("Fonts/Small.ttf");
+	font.loadFromFile("fonts/dejavu-sans/ttf/DejaVuSansCondensed.ttf");
 	Letter.setCharacterSize(FontSize);
 	Letter.setFont(font);
 
@@ -78,7 +78,7 @@ int main()
 			for (size_t j = 0; j < StringSize; j++)
 			{
 				Letter.setString(stringRows[i][j]);
-				Letter.setFillColor(sf::Color::Color(0, 255, 0, HighestBrightness - LightValue * j));
+				Letter.setFillColor(sf::Color(0, 255, 0, HighestBrightness - LightValue * j));
 				Letter.setPosition(stringRowsPos[i].x, stringRowsPos[i].y - FontSize * j);
 
 				window.draw(Letter);
