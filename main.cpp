@@ -29,10 +29,7 @@ int main()
 	Letter.setFont(font);
 
 	std::vector<std::string> stringRows;
-	std::vector<sf::Vector2f> stringRowsPos;
-
-
-    
+	std::vector<sf::Vector2f> stringRowsPos;    
 
 	sf::Clock clock;
 	while (window.isOpen())
@@ -77,12 +74,18 @@ int main()
 		{
 			for (size_t j = 0; j < StringSize; j++)
 			{
-				Letter.setString(stringRows[i][j]);
-				Letter.setFillColor(sf::Color(0, 255, 0, HighestBrightness - LightValue * j));
-				Letter.setPosition(stringRowsPos[i].x, stringRowsPos[i].y - FontSize * j);
+				if(j == 0){
+					Letter.setString(stringRows[i][j]);
+					Letter.setFillColor(sf::Color(255, 255, 255, HighestBrightness - LightValue * j));
+					Letter.setPosition(stringRowsPos[i].x, stringRowsPos[i].y - FontSize * j);
+				}else{
+					Letter.setString(stringRows[i][j]);
+					Letter.setFillColor(sf::Color(0, 255, 0, HighestBrightness - LightValue * j));
+					Letter.setPosition(stringRowsPos[i].x, stringRowsPos[i].y - FontSize * j);
+				}
 
 				window.draw(Letter);
-			}
+			}			
 		}
 
 		window.display();
